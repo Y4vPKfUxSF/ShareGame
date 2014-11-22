@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 //test1
 //test2
+//add foo
 
 public class MainActivity extends ActionBarActivity {
 
