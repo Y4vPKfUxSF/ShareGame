@@ -7,5 +7,6 @@
     <string name="mainTitle">GameTitle</string>
     <string name="startButton">startButton</string>
     <string name="helpButton">helpButton</string>
+    <string name="stopButton">stopButton</string>
 
 </resources>
