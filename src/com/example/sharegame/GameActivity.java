@@ -1,13 +1,15 @@
 package com.example.sharegame;
 
+import android.R.integer;
 import android.app.Activity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-public class GameActivity extends Activity implements OnClickListener{
+public class GameActivity extends Activity implements View.OnClickListener{
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -16,6 +18,7 @@ public class GameActivity extends Activity implements OnClickListener{
         stopButton.setOnClickListener(this);
     }
     
+    @Override
     public void onClick(View v) {
         switch (v.getId()) {
         case R.id.stopButton:
@@ -24,15 +27,12 @@ public class GameActivity extends Activity implements OnClickListener{
             break;
         }
     }
-}
-
-
 
 public class Enemy{
 	Bitmap eCharImage; 
 	int charX, charY, color;
 	
-	//ƒRƒ“ƒXƒgƒ‰ƒNƒ^‚Ì’è‹`
+	//ï¿½Rï¿½ï¿½ï¿½Xï¿½gï¿½ï¿½ï¿½Nï¿½^ï¿½Ì’ï¿½`
 	public Enemy(Bitmap eCharImage, int charX, int charY, int color) {
 		this.eCharImage = eCharImage;
 		this.charX = charX;
@@ -40,7 +40,7 @@ public class Enemy{
 		this.color = color;
 	}
 	
-	//ˆÈ‰ºgetter,setter‚Ì’è‹`
+	//ï¿½È‰ï¿½getter,setterï¿½Ì’ï¿½`
 	public Bitmap geteCharImage() {
 		return eCharImage;
 	}
@@ -73,5 +73,5 @@ public class Enemy{
 		this.color = color;
 	}
 	
-	//toString –¢’…Žè
+	//toString ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
