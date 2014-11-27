@@ -4,5 +4,8 @@
     <string name="app_name">ShareGame</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="mainTitle">GameTitle</string>
+    <string name="startButton">startButton</string>
+    <string name="helpButton">helpButton</string>
 
 </resources>
