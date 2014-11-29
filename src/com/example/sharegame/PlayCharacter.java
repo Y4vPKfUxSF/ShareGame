@@ -1,27 +1,16 @@
 package com.example.sharegame;
 
-import android.R.integer;
 import android.graphics.Bitmap;
 
 
 public class PlayCharacter {
 	
 	private Bitmap pCharImage;
-	private integer gravity;
+	private int gravity;
 	private int charX;
 	private int charY;
 	private boolean position;
 	
-	/**
-	 * ƒRƒ“ƒXƒgƒ‰ƒNƒ^
-	 */
-	public PlayCharacter(Bitmap pCharImage, int charX, int charY, boolean position){
-		this.pCharImage = pCharImage;
-		this.charX = charX;
-		this.charY = charY;
-		this.position = position;
-	}
-
 	/**
 	 * @return pCharImage
 	 */
@@ -29,7 +18,7 @@ public class PlayCharacter {
 		return pCharImage;
 	}
 	/**
-	 * @param pCharImage ƒZƒbƒg‚·‚é pCharImage
+	 * @param pCharImage ã‚»ãƒƒãƒˆã™ã‚‹ pCharImage
 	 */
 	public void setpCharImage(Bitmap pCharImage) {
 		this.pCharImage = pCharImage;
@@ -37,13 +26,13 @@ public class PlayCharacter {
 	/**
 	 * @return gravity
 	 */
-	public integer getGravity() {
+	public int getGravity() {
 		return gravity;
 	}
 	/**
-	 * @param gravity ƒZƒbƒg‚·‚é gravity
+	 * @param gravity ã‚»ãƒƒãƒˆã™ã‚‹ gravity
 	 */
-	public void setGravity(integer gravity) {
+	public void setGravity(int gravity) {
 		this.gravity = gravity;
 	}
 	/**
@@ -53,7 +42,7 @@ public class PlayCharacter {
 		return charX;
 	}
 	/**
-	 * @param charX ƒZƒbƒg‚·‚é charX
+	 * @param charX ã‚»ãƒƒãƒˆã™ã‚‹ charX
 	 */
 	public void setCharX(int charX) {
 		this.charX = charX;
@@ -65,7 +54,7 @@ public class PlayCharacter {
 		return charY;
 	}
 	/**
-	 * @param charY ƒZƒbƒg‚·‚é charY
+	 * @param charY ã‚»ãƒƒãƒˆã™ã‚‹ charY
 	 */
 	public void setCharY(int charY) {
 		this.charY = charY;
@@ -77,13 +66,12 @@ public class PlayCharacter {
 		return position;
 	}
 	/**
-	 * @param position ƒZƒbƒg‚·‚é position
+	 * @param position ã‚»ãƒƒãƒˆã™ã‚‹ position
 	 */
 	public void setPosition(boolean position) {
 		this.position = position;
 	}
-	
-	/* (”ñ Javadoc)
+	/* (é Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

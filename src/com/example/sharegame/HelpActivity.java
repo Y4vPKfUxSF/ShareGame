@@ -8,39 +8,43 @@ import android.widget.TextView;
 public class HelpActivity extends Activity {
 	
 	/**
-	 * ƒwƒ‹ƒv•¶Í
+	 * ãƒ†ã‚­ã‚¹ãƒˆãƒ“ãƒ¥ãƒ¼ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å®šç¾©
+	 * è‡ªã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£å†…ã§ä½¿ã„ã¾ã‚ã™ã“ã¨ã‚’æƒ³å®šã—
+	 * å±€æ‰€å¤‰æ•°ã§ã¯ãªããƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¨ã—ã¦å®£è¨€
 	 */
 	private TextView helpText;
 	
 	/**
-	 * –ß‚éƒ{ƒ^ƒ“
+	 * ãƒœã‚¿ãƒ³ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã‚’å®šç¾©
+	 * è‡ªã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£å†…ã§ä½¿ã„ã¾ã‚ã™ã“ã¨ã‚’æƒ³å®šã—
+	 * å±€æ‰€å¤‰æ•°ã§ã¯ãªããƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¨ã—ã¦å®£è¨€
 	 */
 	@SuppressWarnings("unused")
 	private Button returnButton;
 
 	/**
-	 * ƒAƒNƒeƒBƒrƒeƒB‹N“®‚ÉŒÄ‚Î‚ê‚é
+	 * ã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£èµ·å‹•è‡ªã«å‘¼ã°ã‚Œã‚‹
 	 */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         
-        /* XML‚ÌViewƒtƒ@ƒCƒ‹‚ğŠÖ˜A•t‚¯ */
+        /* XMLã§å®šç¾©ã—ãŸViewãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–¢é€£ä»˜ã‘ */
         setContentView(R.layout.activity_help);
         
-        /* ƒRƒ“ƒ|[ƒlƒ“ƒg‚ğŠÖ˜A•t‚¯ */
+        /* ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’é–¢é€£ä»˜ã‘ */
         helpText = (TextView)findViewById(R.id.helptext);
         helpText.setText("Hello World");
         returnButton = (Button)findViewById(R.id.returnbutton);
     }
     
     /**
-     * –ß‚éƒ{ƒ^ƒ“‚ğ‰Ÿ‰º‚Ì“®ì‚ğ‹Lq
-     * ƒ\[ƒXƒtƒ@ƒCƒ‹‚©‚ç‚ÍŒÄ‚Î‚¸AXMLƒtƒ@ƒCƒ‹‚Ì
-     * onclick‘®«‚É’è‹`‚·‚é
+     * æˆ»ã‚‹ãƒœã‚¿ãƒ³ã®æŒ™å‹•ã‚’å®šç¾©
+     * ã“ã®ã‚¢ã‚¯ãƒ†ã‚£ãƒ“ãƒ†ã‚£å†…ã§ã¯å‘¼ã°ãšã€
+     * XMLãƒ•ã‚¡ã‚¤ãƒ«ã®onclickå±æ€§ã«ã¦é™çš„ã«æŒ‡å®š
      */
     public void returnButtonClick(){
-    	/* ‚Ğ‚Æ‚Â‘O‚Ì“®ì‚Ö–ß‚é */
+    	/* æˆ»ã‚‹ãƒœã‚¿ãƒ³ã®å‹•ä½œ */
     	finish();
     }
 

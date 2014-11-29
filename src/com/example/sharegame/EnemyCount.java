@@ -16,6 +16,22 @@ public class EnemyCount extends Application{
 	}
 	
 	/**
+	 * Applicationクラス作成時に呼ばれる
+	 */
+	@Override
+	public void onCreate(){
+		eCount=0;
+	}
+	
+	/**
+	 * Applicationクラス終了時に呼ばれる
+	 */
+	@Override
+	public void onTerminate(){
+		eCount=0;
+	}
+	
+	/**
 	 * 初期化する為の関数
 	 */
 	public void init(){
