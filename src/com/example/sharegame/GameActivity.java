@@ -27,51 +27,82 @@ public class GameActivity extends Activity implements View.OnClickListener{
             break;
         }
     }
+}
 
 public class Enemy{
 	Bitmap eCharImage; 
 	int charX, charY, color;
 	
-	//�R���X�g���N�^�̒�`
+	//
 	public Enemy(Bitmap eCharImage, int charX, int charY, int color) {
 		this.eCharImage = eCharImage;
 		this.charX = charX;
 		this.charY = charY;
 		this.color = color;
 	}
-	
-	//�ȉ�getter,setter�̒�`
+
+	/**
+	 * @return the eCharImage
+	 */
 	public Bitmap geteCharImage() {
 		return eCharImage;
 	}
-	
+
+	/**
+	 * @param eCharImage the eCharImage to set
+	 */
 	public void seteCharImage(Bitmap eCharImage) {
 		this.eCharImage = eCharImage;
 	}
-	
-	public int getcharX() {
+
+	/**
+	 * @return the charX
+	 */
+	public int getCharX() {
 		return charX;
 	}
-	
-	public void setcharX(int charX) {
+
+	/**
+	 * @param charX the charX to set
+	 */
+	public void setCharX(int charX) {
 		this.charX = charX;
 	}
-	
-	public int getcharY() {
+
+	/**
+	 * @return the charY
+	 */
+	public int getCharY() {
 		return charY;
 	}
-	
-	public void setcharY(int charY) {
+
+	/**
+	 * @param charY the charY to set
+	 */
+	public void setCharY(int charY) {
 		this.charY = charY;
 	}
-	
-	public int getcolor() {
+
+	/**
+	 * @return the color
+	 */
+	public int getColor() {
 		return color;
 	}
-	
-	public void setcolor(int color) {
+
+	/**
+	 * @param color the color to set
+	 */
+	public void setColor(int color) {
 		this.color = color;
 	}
-	
-	//toString ������
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Enemy [eCharImage=" + eCharImage + ", charX=" + charX
+				+ ", charY=" + charY + ", color=" + color + "]";
+	}
 }
