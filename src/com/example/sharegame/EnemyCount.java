@@ -5,18 +5,12 @@ import android.app.Application;
 public class EnemyCount extends Application{
 	
 	/**
-	 * 敵キャラの数情報を保持する
+	 * 謨ｵ繧ｭ繝｣繝ｩ縺ｮ謨ｰ諠�蝣ｱ繧剃ｿ晄戟縺吶ｋ
 	 */
 	private int eCount;
 	
 	/**
-	 * インスタンス化禁止
-	 */
-	private EnemyCount(){
-	}
-	
-	/**
-	 * Applicationクラス作成時に呼ばれる
+	 * Application繧ｯ繝ｩ繧ｹ菴懈�先凾縺ｫ蜻ｼ縺ｰ繧後ｋ
 	 */
 	@Override
 	public void onCreate(){
@@ -24,7 +18,7 @@ public class EnemyCount extends Application{
 	}
 	
 	/**
-	 * Applicationクラス終了時に呼ばれる
+	 * Application繧ｯ繝ｩ繧ｹ邨ゆｺ�譎ゅ↓蜻ｼ縺ｰ繧後ｋ
 	 */
 	@Override
 	public void onTerminate(){
@@ -32,29 +26,29 @@ public class EnemyCount extends Application{
 	}
 	
 	/**
-	 * 初期化する為の関数
+	 * 蛻晄悄蛹悶☆繧狗ぜ縺ｮ髢｢謨ｰ
 	 */
 	public void init(){
 		eCount=0;
 	}
 	
 	/**
-	 * 現在の敵キャラ総数を返す
-	 * @return　敵キャラ総数
+	 * 迴ｾ蝨ｨ縺ｮ謨ｵ繧ｭ繝｣繝ｩ邱乗焚繧定ｿ斐☆
+	 * @return縲�謨ｵ繧ｭ繝｣繝ｩ邱乗焚
 	 */
 	public int getECount(){
 		return eCount;
 	}
 	
 	/**
-	 * 敵キャラ総数にプラス1する
+	 * 謨ｵ繧ｭ繝｣繝ｩ邱乗焚縺ｫ繝励Λ繧ｹ1縺吶ｋ
 	 */
 	public void addtion(){
 		eCount++;
 	}
 
 	/**
-	 * 敵キャラ総数からマイナス1する
+	 * 謨ｵ繧ｭ繝｣繝ｩ邱乗焚縺九ｉ繝槭う繝翫せ1縺吶ｋ
 	 */
 	public void subtraction(){
 		eCount--;
