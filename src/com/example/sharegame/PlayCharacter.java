@@ -7,9 +7,17 @@ public class PlayCharacter {
 	
 	private Bitmap pCharImage;
 	private int gravity;
-	private int charX;
-	private int charY;
-	private boolean position;
+	private float charX;
+	private float charY;
+	private int position;
+	
+	public PlayCharacter(Bitmap pcharimage, int g, float x, float y, int p) {
+		pCharImage = pcharimage;
+		gravity = g;
+		charX = x;
+		charY = y;
+		position = p;
+	}
 	
 	/**
 	 * @return pCharImage
@@ -38,37 +46,37 @@ public class PlayCharacter {
 	/**
 	 * @return charX
 	 */
-	public int getCharX() {
+	public float getCharX() {
 		return charX;
 	}
 	/**
 	 * @param charX セットする charX
 	 */
-	public void setCharX(int charX) {
+	public void setCharX(float charX) {
 		this.charX = charX;
 	}
 	/**
 	 * @return charY
 	 */
-	public int getCharY() {
+	public float getCharY() {
 		return charY;
 	}
 	/**
 	 * @param charY セットする charY
 	 */
-	public void setCharY(int charY) {
+	public void setCharY(float charY) {
 		this.charY = charY;
 	}
 	/**
 	 * @return position
 	 */
-	public boolean isPosition() {
+	public int getPosition() {
 		return position;
 	}
 	/**
 	 * @param position セットする position
 	 */
-	public void setPosition(boolean position) {
+	public void setPosition(int position) {
 		this.position = position;
 	}
 	/* (非 Javadoc)
