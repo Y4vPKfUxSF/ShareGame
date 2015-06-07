@@ -24,7 +24,7 @@ public class HelpActivity extends Activity implements View.OnClickListener{
 	private Button returnButton;
 
 	/**
-	 * アクティビティ起動自に呼ばれる
+	 * アクティビティ起動時に呼ばれる
 	 */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
