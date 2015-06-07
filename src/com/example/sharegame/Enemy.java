@@ -3,16 +3,34 @@ package com.example.sharegame;
 import android.graphics.Bitmap;
 
 public class Enemy{
-	Bitmap eCharImage; 
-	int charX, charY, color;
+    private int id;
+    private Bitmap eCharImage;
+	private int charX;
+	private int charY;
+	private int color;
 	
 	//
-	public Enemy(Bitmap eCharImage, int charX, int charY, int color) {
+	public Enemy(int id, Bitmap eCharImage, int charX, int charY, int color) {
+	    this.id = id;
 		this.eCharImage = eCharImage;
 		this.charX = charX;
 		this.charY = charY;
 		this.color = color;
 	}
+	
+	/**
+     * @return the index
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param index the index to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
 
 	/**
 	 * @return the eCharImage
@@ -70,12 +88,12 @@ public class Enemy{
 		this.color = color;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	@Override
-	public String toString() {
-		return "Enemy [eCharImage=" + eCharImage + ", charX=" + charX
-				+ ", charY=" + charY + ", color=" + color + "]";
-	}
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+        return "Enemy [id=" + id + ", eCharImage=" + eCharImage + ", charX="
+                + charX + ", charY=" + charY + ", color=" + color + "]";
+    }
 }

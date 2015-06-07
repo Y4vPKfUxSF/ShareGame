@@ -1,27 +1,34 @@
 package com.example.sharegame;
 
+import java.util.Date;
+
+import com.example.sharegame.R.id;
+
+import android.R.integer;
 import android.app.Activity;
+import android.content.Context;
 
 /**
  * @author kkouji
  */
 public class Controller {
     private CharCount cCount;
+    private boolean flg;
 
     /**
      * コンストラクタ
      * 
      * @param activity
      */
-    public Controller(Activity activity) {
-        cCount = (CharCount) activity.getApplication();
+    public Controller(Context c) {
+        cCount = (CharCount)c.getApplicationContext();
     }
     
     /**
      * プレイヤーを生成し返す
      * @return
      */
-    public PlayCharacter getPlayChar() {
+    public PlayCharacter getPChar() {
         // 生成条件に合致するか確認
         if (pCharValidIsTrue()) {
             cCount.playerAddition();
@@ -35,11 +42,11 @@ public class Controller {
      * 敵キャラオブジェクトを生成し返す
      * @return
      */
-    public Enemy getEChar() {
+    public Enemy getEChar(int height) {
         // 生成条件に合致するか確認
         if (eCharValidIsTrue()) {
             cCount.enemyAddtion();
-            return new Enemy(eCharImage, charX, charY, color);
+            return new Enemy(id, eCharImage, charX, getECharYPosition(height), color);
         } else {
             return null;
         }
@@ -49,24 +56,22 @@ public class Controller {
      * 敵キャラオブジェクト解放時に呼ぶ
      * @return
      */
-    public boolean removeEChar(){
+    public void removeEChar(Enemy enemy){
+        enemy = null;
         if(cCount.getECount() > 0){
             cCount.enemySubtraction();
-            return true;
         }
-        return false;
     }
     
     /**
      * プレイヤーオブジェクト解放時に呼ぶ
      */
-    public boolean removePChar(){
+    public void removePChar(PlayCharacter pChar){
+        pChar = null;
         if(cCount.getPCount() > 0){
             cCount.playerSubtraction();
-            return true;
         }
-        return false;
-    }
+     }
 
     /**
      * 敵キャラが生成条件に一致する場合Trueを返す
@@ -90,5 +95,20 @@ public class Controller {
             return true;
         }
         return false;
+    }
+    
+    /**
+     * 敵キャラ生成のタイミングを見計らう
+     */
+    private void getEnemyReturnTiming(){
+        
+    }
+    
+    /**
+     * 敵キャラのY座標点をランダムに返す
+     * @return
+     */
+    private int getECharYPosition(int height){
+        return height/(int)((Math.random()*5)+1);
     }
 }
