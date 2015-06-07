@@ -9,8 +9,6 @@ import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
 import android.view.View.OnClickListener;
 
-//maeda
-
 public class GameActivity extends Activity implements View.OnClickListener{
     /** Called when the activity is first created. */
     public void onCreate(Bundle savedInstanceState) {
