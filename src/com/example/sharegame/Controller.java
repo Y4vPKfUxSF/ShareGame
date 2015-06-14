@@ -2,6 +2,8 @@ package com.example.sharegame;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.util.Log;
 
@@ -15,6 +17,8 @@ public class Controller {
     private boolean waitFlg;
     private Handler mHandler;
     private SharedPreferences pref;
+    private Bitmap pCharImage;
+    private Bitmap eCharImage;
 
     /**
      * コンストラクタ
@@ -25,6 +29,8 @@ public class Controller {
         cCount = (CharCount) c.getApplicationContext();
         waitFlg = false;
         pref = c.getSharedPreferences("enemy_id_data",Context.MODE_PRIVATE);
+        pCharImage=BitmapFactory.decodeResource(c.getResources(), R.drawable.kuma);
+        eCharImage=BitmapFactory.decodeResource(c.getResources(), R.drawable.hachi);
     }
 
     /**
@@ -36,7 +42,7 @@ public class Controller {
         // 生成条件に合致するか確認
         if (pCharValidIsTrue()) {
             cCount.playerAddition();
-            return new PlayCharacter(pCharImage, gravity, charX, charY,position);
+            return new PlayCharacter(pCharImage, 9, 100,550,0);
         } else {
             return null;
         }

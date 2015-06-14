@@ -19,7 +19,7 @@ public class GameView extends View{
 	public static final int GROUND = 550; //地面の座標
 	public static final int E_SPEED = 2; //敵の移動速度
 	
-	private Bitmap image,image2,image3; //イメージ画像
+	private Bitmap image3; //イメージ画像
 	public float c_x = 123, c_y = GROUND;; //キャラ初期座標
 	public int ec_x = 410, ec_y = 600; //蜂初期座標
 	public float sy = 0.0f; //ジャンプ力
@@ -27,22 +27,23 @@ public class GameView extends View{
 	public int esizex = 70, esizey = 62; //蜂サイズ
 	public int go_flag = 0; //GameOver判定
 	private Handler mHandler = new Handler();
-	//private Controller controller;
+	private Controller controller;
 	private PlayCharacter pChar;
+	private Enemy enemy1;
+	private Enemy enemy2;
+	private Enemy enemy3;
 	//不要コメント追加
 	
 	public GameView(Context context) {
 		super(context);
-		//controller = new Controller(context);
+		controller = new Controller(context);
 		setBackgroundColor(Color.BLUE); //背景色
 
 		//画像読み込み
 		Resources r =context.getResources();
-		image=BitmapFactory.decodeResource(r, R.drawable.kuma);
-		image2=BitmapFactory.decodeResource(r, R.drawable.hachi);
 		image3=BitmapFactory.decodeResource(r, R.drawable.gameover);
 		
-		pChar = new PlayCharacter(image, 9, 100, GROUND, 0);
+		pChar = controller.getPChar();
 		
 		Timer mTimer = new Timer();
         mTimer.schedule( new TimerTask(){
@@ -126,7 +127,9 @@ public class GameView extends View{
 	}
 	
 	public void eCharMove() {
-		if(ec_x >= 0 && go_flag == 0) ec_x -= E_SPEED; //蜂の移動
+	    if(enemy1 != null){
+	        if(enemy1.getCharX() >= 0 && go_flag == 0) enemy1.setCharX(enemy1.getCharX()-E_SPEED); //蜂の移動
+	    }
 	}
 	
 	public void pCharDraw(Canvas canvas, float x, float y) {
@@ -134,7 +137,18 @@ public class GameView extends View{
 	}
 	
 	public void eCharDraw(Canvas canvas, float x, float y) {
-		canvas.drawBitmap(image2, x, y, null);
+	    enemy1 = controller.getEChar(410, 600);
+	    if(enemy1 != null){
+	        canvas.drawBitmap(enemy1.geteCharImage(), enemy1.getCharX(),enemy1.getCharY(), null);
+	    }
+	    enemy2 = controller.getEChar(410, 600);
+        if(enemy2 != null){
+            canvas.drawBitmap(enemy2.geteCharImage(), enemy2.getCharX(),enemy2.getCharY(), null);
+        }
+        enemy3 = controller.getEChar(410, 600);
+        if(enemy3 != null){
+            canvas.drawBitmap(enemy3.geteCharImage(), enemy3.getCharX(),enemy3.getCharY(), null);
+        }
 	}
 	
 	public void setPref(boolean gameflg) {
