@@ -1,13 +1,9 @@
 package com.example.sharegame;
 
-import android.R.integer;
 import android.app.Activity;
-import android.os.Bundle;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
+import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 
 public class GameActivity extends Activity implements View.OnClickListener{
     /** Called when the activity is first created. */

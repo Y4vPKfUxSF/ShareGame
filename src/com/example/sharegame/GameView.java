@@ -2,6 +2,7 @@ package com.example.sharegame;
 
 import java.util.Timer;
 import java.util.TimerTask;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
