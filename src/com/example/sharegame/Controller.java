@@ -1,5 +1,7 @@
 package com.example.sharegame;
 
+import java.util.Random;
+
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -57,9 +59,9 @@ public class Controller {
         // 生成条件に合致するか確認
         if (eCharValidIsTrue()) {
             // タイミングを見計らう処理
-            getEnemyReturnTiming();
-            cCount.enemyAddtion();
-            return new Enemy(getEnemyId(), eCharImage, width, getECharYPosition(height), 0);
+            //getEnemyReturnTiming();
+            //cCount.enemyAddtion();
+            return new Enemy(0, eCharImage, width, getECharYPosition(height), 0);
         }
         return null;
     }
