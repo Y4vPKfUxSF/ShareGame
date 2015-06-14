@@ -28,6 +28,7 @@ public class GameView extends View{
 	private Handler mHandler = new Handler();
 	//private Controller controller;
 	private PlayCharacter pChar;
+	//不要コメント追加
 	
 	public GameView(Context context) {
 		super(context);
