@@ -4,15 +4,17 @@ import android.graphics.Bitmap;
 
 public class Enemy{
 	Bitmap eCharImage; 
-	int charX, charY, color;
+	float charX, charY;
+	int color;
 	
 	//
-	public Enemy(Bitmap eCharImage, int charX, int charY, int color) {
+	public Enemy(Bitmap eCharImage, float charX, float charY, int color) {
 		this.eCharImage = eCharImage;
 		this.charX = charX;
 		this.charY = charY;
 		this.color = color;
 	}
+	public Enemy() {}
 
 	/**
 	 * @return the eCharImage
@@ -31,28 +33,28 @@ public class Enemy{
 	/**
 	 * @return the charX
 	 */
-	public int getCharX() {
+	public float getCharX() {
 		return charX;
 	}
 
 	/**
 	 * @param charX the charX to set
 	 */
-	public void setCharX(int charX) {
+	public void setCharX(float charX) {
 		this.charX = charX;
 	}
 
 	/**
 	 * @return the charY
 	 */
-	public int getCharY() {
+	public float getCharY() {
 		return charY;
 	}
 
 	/**
 	 * @param charY the charY to set
 	 */
-	public void setCharY(int charY) {
+	public void setCharY(float charY) {
 		this.charY = charY;
 	}
 
