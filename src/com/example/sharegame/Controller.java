@@ -1,12 +1,7 @@
 package com.example.sharegame;
 
-import java.util.List;
-import java.util.Map;
-
-import android.R.integer;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.os.Handler;
 import android.util.Log;
 
@@ -14,6 +9,8 @@ import android.util.Log;
  * @author kkouji
  */
 public class Controller {
+    private static String E_CHAR_KEY="enemy_id";
+    private static int E_CHAR_COUNT=3;
     private CharCount cCount;
     private boolean waitFlg;
     private Handler mHandler;
@@ -27,7 +24,7 @@ public class Controller {
     public Controller(Context c) {
         cCount = (CharCount) c.getApplicationContext();
         waitFlg = false;
-        pref = c.getSharedPreferences("enemy_id_data",c.MODE_PRIVATE);
+        pref = c.getSharedPreferences("enemy_id_data",Context.MODE_PRIVATE);
     }
 
     /**
@@ -67,20 +64,24 @@ public class Controller {
      * @return
      */
     public void removeEChar(Enemy enemy) {
-        enemy = null;
+        //使用中フラグを折る
+        SharedPreferences.Editor e = pref.edit();
+        e.putBoolean(E_CHAR_KEY+enemy.getId(), false).commit();
+        //敵キャラカウントを減らす
         if (cCount.getECount() > 0) {
             cCount.enemySubtraction();
         }
+        enemy = null;
     }
 
     /**
      * プレイヤーオブジェクト解放時に呼ぶ
      */
     public void removePChar(PlayCharacter pChar) {
-        pChar = null;
         if (cCount.getPCount() > 0) {
             cCount.playerSubtraction();
         }
+        pChar = null;
     }
 
     /**
@@ -117,6 +118,7 @@ public class Controller {
             @Override
             public void run() {
                 try {
+                    // 3秒以内待つ
                     Thread.sleep((long) (Math.random() * 3000));
                 } catch (InterruptedException e) {
                     Log.d("", e.getMessage());
@@ -141,14 +143,14 @@ public class Controller {
      * @return
      */
     private int getEnemyId() {
-        for(int i= 0;i<3;i++){
-            if (!pref.getBoolean(String.valueOf(i), false)){
-                Editor e = pref.edit();
-                e.putBoolean(String.valueOf(i), true);
+        for(int i= 0;i<E_CHAR_COUNT;i++){
+            if (!pref.getBoolean(E_CHAR_KEY+i, false)){
+                SharedPreferences.Editor e = pref.edit();
+                e.putBoolean(E_CHAR_KEY+i, true).commit();
                 return i;
             }
         }
-        return 4;
+        return -1;
     }
 
 }
