@@ -52,7 +52,7 @@ public class Enemy {
     /**
      * @return the charX
      */
-    public float getCharX() {
+    public int getCharX() {
         return charX;
     }
 
@@ -67,7 +67,7 @@ public class Enemy {
     /**
      * @return the charY
      */
-    public float getCharY() {
+    public int getCharY() {
         return charY;
     }
 
