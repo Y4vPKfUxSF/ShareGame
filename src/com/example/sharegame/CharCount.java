@@ -5,7 +5,7 @@ import android.app.Application;
 public class CharCount extends Application{
 	
 	/**
-	 * 謨ｵ繧ｭ繝｣繝ｩ縺ｮ謨ｰ諠�蝣ｱ繧剃ｿ晄戟縺吶ｋ
+	 * 
 	 */
 	private int eCount;
 	private int pCount;
