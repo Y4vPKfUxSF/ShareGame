@@ -31,8 +31,8 @@ public class Controller {
         cCount = (CharCount) c.getApplicationContext();
         waitFlg = false;
         pref = c.getSharedPreferences("enemy_id_data",Context.MODE_PRIVATE);
-        pCharImage=BitmapFactory.decodeResource(c.getResources(), R.drawable.kuma);
-        eCharImage=BitmapFactory.decodeResource(c.getResources(), R.drawable.hachi);
+        pCharImage=BitmapFactory.decodeResource(c.getResources(), R.drawable.crabe_a03);
+        eCharImage=BitmapFactory.decodeResource(c.getResources(), R.drawable.crow_a03);
     }
 
     /**

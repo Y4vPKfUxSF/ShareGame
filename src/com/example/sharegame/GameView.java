@@ -18,20 +18,19 @@ import android.view.View;
 public class GameView extends View{
     /** Called when the activity is first created. */
 	public static final int GROUND = 550; //地面の座標
-	public static final int E_SPEED = 2; //敵の移動速度
-	
+	public int ENEMY = 3;
 	private Bitmap image2, image3; //イメージ画像
 	public float c_x = 123, c_y = GROUND;; //キャラ初期座標
 	public int ec_x = 410, ec_y = 600; //蜂初期座標
 	public float sy = 0.0f; //ジャンプ力
-	public int csizex = 76, csizey = 107; //キャラサイズ
-	public int esizex = 70, esizey = 62; //蜂サイズ
+	public int csizex = 300, csizey = 203; //キャラサイズ
+	public int esizex = 300, esizey = 203; //蜂サイズ
 	public int go_flag = 0; //GameOver判定
 	private Handler mHandler = new Handler();
 	private Controller controller;
 	private PlayCharacter pChar;
-	public int e_count = 0;
-	Enemy[] Enemy = new Enemy[3];
+	Enemy[] Enemy = new Enemy[ENEMY];
+	
 	
 	public GameView(Context context) {
 		super(context);
@@ -40,7 +39,7 @@ public class GameView extends View{
 
 		//画像読み込み
 		Resources r =context.getResources();
-		image2=BitmapFactory.decodeResource(r, R.drawable.hachi);
+		image2=BitmapFactory.decodeResource(r, R.drawable.crow_a03);
 		image3=BitmapFactory.decodeResource(r, R.drawable.gameover);
 		
 		pChar = controller.getPChar();
@@ -153,9 +152,9 @@ public class GameView extends View{
 	public void eCharControl() {
 		Random r = new Random();
 		int n = r.nextInt(600);
-    	if(Enemy[0].getCharX() < -70) Enemy[0] = controller.getEChar(410 + n, 600);
-    	if(Enemy[1].getCharX() < -70) Enemy[1] = controller.getEChar(410 + n, 600);
-    	if(Enemy[2].getCharX() < -70) Enemy[2] = controller.getEChar(410 + n, 600);
+		for(int i = 0; i < ENEMY; i++) { 
+			if(Enemy[i].getCharX() < -70) Enemy[i] = controller.getEChar(410 + n, 600);
+		}
 	}
 	
 	public void setPref(boolean gameflg) {
