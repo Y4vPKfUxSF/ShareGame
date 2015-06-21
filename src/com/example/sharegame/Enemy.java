@@ -18,6 +18,8 @@ public class Enemy {
         this.charY = charY;
         this.color = color;
     }
+    
+    public Enemy() {}
 
     /**
      * @return the index

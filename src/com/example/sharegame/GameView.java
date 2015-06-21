@@ -1,5 +1,6 @@
 package com.example.sharegame;
 
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -17,22 +18,19 @@ import android.view.View;
 public class GameView extends View{
     /** Called when the activity is first created. */
 	public static final int GROUND = 550; //地面の座標
-	public static final int E_SPEED = 2; //敵の移動速度
-	
-	private Bitmap image3; //イメージ画像
+	public int ENEMY = 3;
+	private Bitmap image2, image3; //イメージ画像
 	public float c_x = 123, c_y = GROUND;; //キャラ初期座標
 	public int ec_x = 410, ec_y = 600; //蜂初期座標
 	public float sy = 0.0f; //ジャンプ力
-	public int csizex = 76, csizey = 107; //キャラサイズ
-	public int esizex = 70, esizey = 62; //蜂サイズ
+	public int csizex = 300, csizey = 203; //キャラサイズ
+	public int esizex = 300, esizey = 203; //蜂サイズ
 	public int go_flag = 0; //GameOver判定
 	private Handler mHandler = new Handler();
 	private Controller controller;
 	private PlayCharacter pChar;
-	private Enemy enemy1;
-	private Enemy enemy2;
-	private Enemy enemy3;
-	//不要コメント追加
+	Enemy[] Enemy = new Enemy[ENEMY];
+	
 	
 	public GameView(Context context) {
 		super(context);
@@ -41,9 +39,15 @@ public class GameView extends View{
 
 		//画像読み込み
 		Resources r =context.getResources();
+		image2=BitmapFactory.decodeResource(r, R.drawable.crow_a03);
 		image3=BitmapFactory.decodeResource(r, R.drawable.gameover);
 		
 		pChar = controller.getPChar();
+		
+		//eCharControl();
+		Enemy[0] = controller.getEChar(410, 600);
+		Enemy[1] = controller.getEChar(410, 600);
+		Enemy[2] = controller.getEChar(410, 600);
 		
 		Timer mTimer = new Timer();
         mTimer.schedule( new TimerTask(){
@@ -55,6 +59,7 @@ public class GameView extends View{
                         pCharMove();
                         eCharMove();
                         judge();
+                        eCharControl();
                     }
                 });
             }
@@ -64,7 +69,9 @@ public class GameView extends View{
 	@Override
 	protected void onDraw(Canvas canvas) {
 		pCharDraw(canvas, pChar.getCharX(), pChar.getCharY()); //熊の描画
-		eCharDraw(canvas, ec_x, ec_y); //蜂の描画
+		for(int i = 0; i < Enemy.length; i++) {
+			eCharDraw(canvas, Enemy[i].getCharX(), Enemy[i].getCharY()); //蜂の描画
+		}
 		if(go_flag == 1) canvas.drawBitmap(image3, 0, 0,null); //GameOver
 	}
 	
@@ -94,8 +101,10 @@ public class GameView extends View{
 	
 	public void judge() {
 		//蜂と熊がぶつかったときの判定
-		if(pChar.getCharX() < (ec_x + esizex) && (pChar.getCharX() + csizex) > ec_x && pChar.getCharY() < (ec_y + esizey) && (pChar.getCharY() + csizey) > ec_y) {
-			go_flag = 1; //GameOverのフラグを立てる
+		for(int i = 0; i < Enemy.length; i++) {
+			if(pChar.getCharX() < (Enemy[i].getCharX() + esizex) && (pChar.getCharX() + csizex) > Enemy[i].getCharX() && pChar.getCharY() < (Enemy[i].getCharY() + esizey) && (pChar.getCharY() + csizey) > Enemy[i].getCharY()) {
+				go_flag = 1; //GameOverのフラグを立てる
+			}
 		}
 		
 		//地面との判定
@@ -127,9 +136,9 @@ public class GameView extends View{
 	}
 	
 	public void eCharMove() {
-	    if(enemy1 != null){
-	        if(enemy1.getCharX() >= 0 && go_flag == 0) enemy1.setCharX(enemy1.getCharX()-E_SPEED); //蜂の移動
-	    }
+		for(int i = 0; i < Enemy.length; i++) {
+			if(go_flag == 0) Enemy[i].setCharX(Enemy[i].getCharX() - i % 3 - 2); //蜂の移動
+		}
 	}
 	
 	public void pCharDraw(Canvas canvas, float x, float y) {
@@ -137,18 +146,15 @@ public class GameView extends View{
 	}
 	
 	public void eCharDraw(Canvas canvas, float x, float y) {
-	    enemy1 = controller.getEChar(410, 600);
-	    if(enemy1 != null){
-	        canvas.drawBitmap(enemy1.geteCharImage(), enemy1.getCharX(),enemy1.getCharY(), null);
-	    }
-	    enemy2 = controller.getEChar(410, 600);
-        if(enemy2 != null){
-            canvas.drawBitmap(enemy2.geteCharImage(), enemy2.getCharX(),enemy2.getCharY(), null);
-        }
-        enemy3 = controller.getEChar(410, 600);
-        if(enemy3 != null){
-            canvas.drawBitmap(enemy3.geteCharImage(), enemy3.getCharX(),enemy3.getCharY(), null);
-        }
+		if(x > -70 && x < 800) canvas.drawBitmap(image2, x, y, null);
+	}
+	
+	public void eCharControl() {
+		Random r = new Random();
+		int n = r.nextInt(600);
+		for(int i = 0; i < ENEMY; i++) { 
+			if(Enemy[i].getCharX() < -70) Enemy[i] = controller.getEChar(410 + n, 600);
+		}
 	}
 	
 	public void setPref(boolean gameflg) {
