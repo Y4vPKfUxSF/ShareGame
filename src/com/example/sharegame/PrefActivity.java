@@ -11,7 +11,7 @@ public class PrefActivity extends PreferenceActivity{
     @Override
     protected void onCreate(Bundle b){
         super.onCreate(b);
-        getFragmentManager().beginTransaction().replace(android.R.id.content, new PrefFragment()).commit();
+        getFragmentManager().beginTransaction().replace(android.R.id.content, PrefFragment.getPrefFragment()).commit();
     }
     
     /**
@@ -20,6 +20,15 @@ public class PrefActivity extends PreferenceActivity{
      *
      */
     private static class PrefFragment extends PreferenceFragment implements SharedPreferences.OnSharedPreferenceChangeListener{
+        
+        private static PrefFragment pf=new PrefFragment();
+        
+        private PrefFragment(){}
+        
+        private static PrefFragment getPrefFragment(){
+            return pf;
+        }
+        
         @Override
         public void onCreate(Bundle b){
             super.onCreate(b);

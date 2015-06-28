@@ -8,9 +8,13 @@
 	<string name="startButton">startButton</string>
 	<string name="helpButton">helpButton</string>
 	<string name="stopButton">stopButton</string>
-	<string name="prefButton">設定</string>
-	<string name="pref_enemy_title">敵キャラ設定</string>
-	<string name="pref_enemy_count_text">敵の上限数</string>
-	<string name="pref_enemy_speed_text">敵キャラ速度</string>
+	<string name="prefButton">Preference</string>
+	<string name="pref_enemy_title">Enemy Preference</string>
+	<string name="pref_enemy_count_text">Max Enemy Count</string>
+	<string name="pref_enemy_speed_text">Enemy Speed</string>
+	<string name="result_text_goal">Goal</string>
+	<string name="result_text_miss">Miss</string>
+	<string name="result_button_retry">Retry</string>
+	<string name="result_button_exit">Back To Menu</string>
 
 </resources>

@@ -14,9 +14,9 @@
 		<item>3</item>
 	</string-array>
 	<string-array name="enemy_speed_captions">
-		<item>Slow</item>
-		<item>Average</item>
-		<item>Fast</item>
+		<item>遅い</item>
+		<item>普通</item>
+		<item>早い</item>
 	</string-array>
 
 </resources>

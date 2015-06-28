@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="max_enemy_count">max_enemy_count</string>
+	<string name="enemy_speed">enemy_speed</string>
+
+</resources>
