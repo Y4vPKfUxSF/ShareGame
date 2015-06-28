@@ -60,10 +60,9 @@ public class GameView extends View{
 		
 		pChar = controller.getPChar();
 		
-		//eCharControl();
-		Enemy[0] = controller.getEChar(1280, 600);
-		Enemy[1] = controller.getEChar(1280, 800);
-		Enemy[2] = controller.getEChar(1280, 1000);
+		Enemy[0] = controller.getEChar(1280, 500);
+		Enemy[1] = controller.getEChar(1280, 1000);
+		Enemy[2] = controller.getEChar(1280, 1500);
 		
 		Timer mTimer = new Timer();
         mTimer.schedule( new TimerTask(){
@@ -110,7 +109,7 @@ public class GameView extends View{
 	
 	public void charJump() {
 		pChar.setPosition(1); //ジャンプ中状態にする
-		sy = -20.f; //ジャンプ力
+		sy = -30.f; //ジャンプ力
 		c_y += sy; //慣性力
 		sy += 0.2f; //重力
 	}
@@ -120,7 +119,12 @@ public class GameView extends View{
 		for(int i = 0; i < Enemy.length; i++) {
 			if(pChar.getCharX() < ((Enemy[i].getCharX() + esizex)*CX) && (pChar.getCharX() + csizex*CX) > Enemy[i].getCharX()*CX && pChar.getCharY()*CY < ((Enemy[i].getCharY() + esizey)*CY) && ((pChar.getCharY() + csizey)*CY) > Enemy[i].getCharY()*CY) {
 				go_flag = 1; //GameOverのフラグを立てる
-				getContext().startActivity(new Intent(getContext(), MenuActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+				
+				Intent intent = new Intent(getContext(),ResultActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				intent.putExtra("result","GameOverです！！");
+				getContext().startActivity(intent);
+				//getContext().startActivity(new Intent(getContext(), MenuActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 			}
 		}
 		

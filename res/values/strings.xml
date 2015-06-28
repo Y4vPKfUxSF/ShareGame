@@ -8,5 +8,7 @@
     <string name="startButton">startButton</string>
     <string name="helpButton">helpButton</string>
     <string name="stopButton">stopButton</string>
+    <string name="menuButton">menuButton</string>
+    <string name="result">result</string>
 
 </resources>
