@@ -5,6 +5,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -31,7 +32,6 @@ public class GameView extends View{
 	private PlayCharacter pChar;
 	Enemy[] Enemy = new Enemy[ENEMY];
 	
-	
 	public GameView(Context context) {
 		super(context);
 		controller = new Controller(context);
@@ -43,7 +43,7 @@ public class GameView extends View{
 		image3=BitmapFactory.decodeResource(r, R.drawable.gameover);
 		
 		pChar = controller.getPChar();
-		
+
 		//eCharControl();
 		Enemy[0] = controller.getEChar(410, 600);
 		Enemy[1] = controller.getEChar(410, 600);
@@ -72,7 +72,15 @@ public class GameView extends View{
 		for(int i = 0; i < Enemy.length; i++) {
 			eCharDraw(canvas, Enemy[i].getCharX(), Enemy[i].getCharY()); //蜂の描画
 		}
-		if(go_flag == 1) canvas.drawBitmap(image3, 0, 0,null); //GameOver
+		if(go_flag == 1) {
+		    canvas.drawBitmap(image3, 0, 0,null);
+		}
+	}
+	
+	private void getFinish(){
+	    Intent i = new Intent(getContext(), HelpActivity.class);
+	    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        getContext().startActivity(i);
 	}
 	
 	//タッチイベント処理
@@ -104,6 +112,7 @@ public class GameView extends View{
 		for(int i = 0; i < Enemy.length; i++) {
 			if(pChar.getCharX() < (Enemy[i].getCharX() + esizex) && (pChar.getCharX() + csizex) > Enemy[i].getCharX() && pChar.getCharY() < (Enemy[i].getCharY() + esizey) && (pChar.getCharY() + csizey) > Enemy[i].getCharY()) {
 				go_flag = 1; //GameOverのフラグを立てる
+				getFinish();
 			}
 		}
 		

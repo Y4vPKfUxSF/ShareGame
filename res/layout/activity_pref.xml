@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+	<PreferenceCategory android:title="@string/pref_enemy_title" >
+
+		<ListPreference
+			android:defaultValue="3"
+			android:dialogTitle="敵キャラの上限数"
+			android:entries="@array/max_enemy_counts"
+			android:entryValues="@array/max_enemy_counts"
+			android:key="@string/max_enemy_count"
+			android:summary=""
+			android:title="@string/pref_enemy_count_text" />
+
+		<ListPreference
+			android:defaultValue="2"
+			android:dialogTitle="敵キャラの速度"
+			android:entries="@array/enemy_speed_captions"
+			android:entryValues="@array/enemy_speed_value"
+			android:key="@string/enemy_speed"
+			android:summary=""
+			android:title="@string/pref_enemy_speed_text" />
+	</PreferenceCategory>
+
+</PreferenceScreen>

@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">ShareGame</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="action_settings">Settings</string>
-    <string name="mainTitle">GameTitle</string>
-    <string name="startButton">startButton</string>
-    <string name="helpButton">helpButton</string>
-    <string name="stopButton">stopButton</string>
+	<string name="app_name">ShareGame</string>
+	<string name="hello_world">Hello world!</string>
+	<string name="action_settings">Settings</string>
+	<string name="mainTitle">GameTitle</string>
+	<string name="startButton">startButton</string>
+	<string name="helpButton">helpButton</string>
+	<string name="stopButton">stopButton</string>
+	<string name="prefButton">設定</string>
+	<string name="pref_enemy_title">敵キャラ設定</string>
+	<string name="pref_enemy_count_text">敵の上限数</string>
+	<string name="pref_enemy_speed_text">敵キャラ速度</string>
 
 </resources>

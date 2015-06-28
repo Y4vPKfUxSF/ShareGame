@@ -1,7 +1,5 @@
 package com.example.sharegame;
 
-import java.util.Random;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -117,48 +115,12 @@ public class Controller {
     }
 
     /**
-     * 敵キャラ生成のタイミングを見計らう
-     */
-    private void getEnemyReturnTiming() {
-        waitFlg = true;
-        mHandler = new Handler();
-        mHandler.post(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    // 3秒以内待つ
-                    Thread.sleep((long) (Math.random() * 3000));
-                } catch (InterruptedException e) {
-                    Log.d("", e.getMessage());
-                }
-            }
-        });
-        waitFlg = false;
-    }
-
-    /**
      * 敵キャラのY座標点をランダムに返す
      * 
      * @return
      */
     private int getECharYPosition(int height) {
         return height / (int) ((Math.random() * 5) + 1);
-    }
-
-    /**
-     * 敵キャラに振る一意のIDを返す
-     * 
-     * @return
-     */
-    private int getEnemyId() {
-        for(int i= 0;i<E_CHAR_COUNT;i++){
-            if (!pref.getBoolean(E_CHAR_KEY+i, false)){
-                SharedPreferences.Editor e = pref.edit();
-                e.putBoolean(E_CHAR_KEY+i, true).commit();
-                return i;
-            }
-        }
-        return -1;
     }
 
 }

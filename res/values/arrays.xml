@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string-array name="max_enemy_counts">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+		<item>4</item>
+		<item>5</item>
+	</string-array>
+	<string-array name="enemy_speed_value">
+		<item>1</item>
+		<item>2</item>
+		<item>3</item>
+	</string-array>
+	<string-array name="enemy_speed_captions">
+		<item>遅い</item>
+		<item>普通</item>
+		<item>早い</item>
+	</string-array>
+
+</resources>

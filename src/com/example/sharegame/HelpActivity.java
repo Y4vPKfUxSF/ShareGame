@@ -2,7 +2,6 @@ package com.example.sharegame;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.support.v4.widget.SimpleCursorAdapter.ViewBinder;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;

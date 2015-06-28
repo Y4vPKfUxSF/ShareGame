@@ -1,8 +1,8 @@
 package com.example.sharegame;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
@@ -17,18 +17,32 @@ public class MenuActivity extends Activity implements OnClickListener{
         
         View helpButton = findViewById(R.id.helpButton);
         helpButton.setOnClickListener(this);
+        
+        View prefButton = findViewById(R.id.prefButton);
+        prefButton.setOnClickListener(this);
     }
     
     public void onClick(View v) {
         switch (v.getId()) {
         case R.id.startButton:
-            Intent i = new Intent (this, GameActivity.class);
-            startActivity(i);
+            goOtherActivity(GameActivity.class);
             break;
         case R.id.helpButton:
-            Intent j = new Intent (this, HelpActivity.class);
-            startActivity(j);
+            goOtherActivity(HelpActivity.class);
+            break;
+        case R.id.prefButton:
+            goOtherActivity(PrefActivity.class);
             break;
         }
     }
+    
+    /**
+     * 別のアクティビティに移る処理
+     * @param className
+     */
+    private void goOtherActivity(Class<?> className){
+        Intent i = new Intent(this, className);
+        startActivity(i);
+    }
+
 }
