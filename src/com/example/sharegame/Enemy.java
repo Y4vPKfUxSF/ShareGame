@@ -6,12 +6,12 @@ public class Enemy {
 
     private int id;
     private Bitmap eCharImage;
-    private int charX;
-    private int charY;
+    private float charX;
+    private float charY;
     private int color;
 
     //
-    public Enemy(int id, Bitmap eCharImage, int charX, int charY, int color) {
+    public Enemy(int id, Bitmap eCharImage, float charX, float charY, int color) {
         this.id = id;
         this.eCharImage = eCharImage;
         this.charX = charX;
@@ -54,7 +54,7 @@ public class Enemy {
     /**
      * @return the charX
      */
-    public int getCharX() {
+    public float getCharX() {
         return charX;
     }
 
@@ -62,14 +62,14 @@ public class Enemy {
      * @param charX
      *            the charX to set
      */
-    public void setCharX(int charX) {
+    public void setCharX(float charX) {
         this.charX = charX;
     }
 
     /**
      * @return the charY
      */
-    public int getCharY() {
+    public float getCharY() {
         return charY;
     }
 
@@ -77,7 +77,7 @@ public class Enemy {
      * @param charY
      *            the charY to set
      */
-    public void setCharY(int charY) {
+    public void setCharY(float charY) {
         this.charY = charY;
     }
 

@@ -55,7 +55,7 @@ public class Controller {
      * 
      * @return
      */
-    public Enemy getEChar(int width, int height) {
+    public Enemy getEChar(float width, float height) {
         // 生成条件に合致するか確認
         if (eCharValidIsTrue()) {
             // タイミングを見計らう処理
@@ -141,8 +141,8 @@ public class Controller {
      * 
      * @return
      */
-    private int getECharYPosition(int height) {
-        return height / (int) ((Math.random() * 5) + 1);
+    private float getECharYPosition(float height) {
+        return height / (float) ((Math.random() * 5) + 1);
     }
 
     /**

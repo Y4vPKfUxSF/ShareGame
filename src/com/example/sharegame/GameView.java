@@ -3,22 +3,30 @@ package com.example.sharegame;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-
 import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.os.Handler;
+import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.WindowManager;
 
 //イメージ描画
 public class GameView extends View{
     /** Called when the activity is first created. */
-	public static final int GROUND = 550; //地面の座標
+	//定数の定義
+	public static final float SCREEN_X = 1080;
+    public static final float SCREEN_Y = 1920;
+	public static final int GROUND = 1300; //地面の座標
 	public int ENEMY = 3;
+	
 	private Bitmap image2, image3; //イメージ画像
 	public float c_x = 123, c_y = GROUND;; //キャラ初期座標
 	public int ec_x = 410, ec_y = 600; //蜂初期座標
@@ -31,7 +39,15 @@ public class GameView extends View{
 	private PlayCharacter pChar;
 	Enemy[] Enemy = new Enemy[ENEMY];
 	
-	
+	//端末の画面サイズを計算
+    WindowManager wm = (WindowManager)getContext().getSystemService(Context.WINDOW_SERVICE);
+    Display disp = wm.getDefaultDisplay();
+    float width = disp.getWidth();
+    float height = disp.getHeight();
+    //画面サイズに合わせて表示させるための係数
+    float CX = width / SCREEN_X;
+    float CY = height / SCREEN_Y;    
+		
 	public GameView(Context context) {
 		super(context);
 		controller = new Controller(context);
@@ -45,9 +61,9 @@ public class GameView extends View{
 		pChar = controller.getPChar();
 		
 		//eCharControl();
-		Enemy[0] = controller.getEChar(410, 600);
-		Enemy[1] = controller.getEChar(410, 600);
-		Enemy[2] = controller.getEChar(410, 600);
+		Enemy[0] = controller.getEChar(1280, 600);
+		Enemy[1] = controller.getEChar(1280, 800);
+		Enemy[2] = controller.getEChar(1280, 1000);
 		
 		Timer mTimer = new Timer();
         mTimer.schedule( new TimerTask(){
@@ -68,9 +84,9 @@ public class GameView extends View{
 	
 	@Override
 	protected void onDraw(Canvas canvas) {
-		pCharDraw(canvas, pChar.getCharX(), pChar.getCharY()); //熊の描画
+		pCharDraw(canvas, pChar.getCharX(), pChar.getCharY()*CY); //熊の描画
 		for(int i = 0; i < Enemy.length; i++) {
-			eCharDraw(canvas, Enemy[i].getCharX(), Enemy[i].getCharY()); //蜂の描画
+			eCharDraw(canvas, Enemy[i].getCharX()*CX, Enemy[i].getCharY()*CY); //蜂の描画
 		}
 		if(go_flag == 1) canvas.drawBitmap(image3, 0, 0,null); //GameOver
 	}
@@ -82,7 +98,7 @@ public class GameView extends View{
         	if(pChar.getPosition() == 0) charJump();
             break;
         case MotionEvent.ACTION_MOVE:
-        	c_x = (int) event.getX() - (csizex / 2);
+        	pChar.setCharX(event.getX()-(csizex/4));
             break;
         case MotionEvent.ACTION_UP:
             break;
@@ -94,7 +110,7 @@ public class GameView extends View{
 	
 	public void charJump() {
 		pChar.setPosition(1); //ジャンプ中状態にする
-		sy = -15.f; //ジャンプ力
+		sy = -20.f; //ジャンプ力
 		c_y += sy; //慣性力
 		sy += 0.2f; //重力
 	}
@@ -102,22 +118,23 @@ public class GameView extends View{
 	public void judge() {
 		//蜂と熊がぶつかったときの判定
 		for(int i = 0; i < Enemy.length; i++) {
-			if(pChar.getCharX() < (Enemy[i].getCharX() + esizex) && (pChar.getCharX() + csizex) > Enemy[i].getCharX() && pChar.getCharY() < (Enemy[i].getCharY() + esizey) && (pChar.getCharY() + csizey) > Enemy[i].getCharY()) {
+			if(pChar.getCharX() < ((Enemy[i].getCharX() + esizex)*CX) && (pChar.getCharX() + csizex*CX) > Enemy[i].getCharX()*CX && pChar.getCharY()*CY < ((Enemy[i].getCharY() + esizey)*CY) && ((pChar.getCharY() + csizey)*CY) > Enemy[i].getCharY()*CY) {
 				go_flag = 1; //GameOverのフラグを立てる
+				getContext().startActivity(new Intent(getContext(), MenuActivity.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
 			}
 		}
 		
 		//地面との判定
-		if((int)c_y >= GROUND) {
-			c_y = GROUND; //地面
+		if(pChar.getCharY() >= GROUND) {
+			pChar.setCharY(GROUND);//地面
 			pChar.setPosition(0); //地上にいる状態にする
 		}
 		
 		//左右画面端の判定
 		if(pChar.getCharX() <= 0) {
 			pChar.setCharX(0);
-		} else if(pChar.getCharX() >= 404) {
-			pChar.setCharX(404);
+		} else if(pChar.getCharX() >= (SCREEN_X - csizex) * CX) {
+			pChar.setCharX((SCREEN_X - csizex) * CX);
 		}
 		
 		//ゴールした時の処理
@@ -125,19 +142,18 @@ public class GameView extends View{
 	
 	public void pCharMove() {
 		//キャラの移動
-		pChar.setCharX(pChar.getCharX() + (c_x - pChar.getCharX())/2.4f);
 		pChar.setCharY(pChar.getCharY() + (c_y - pChar.getCharY())/2.4f);
         
         //空中にいる際の処理
   		if(c_y < GROUND) {
   			c_y += sy; //慣性力
   			sy += 0.5f; //重力
-  		}  		
+  		}
 	}
 	
 	public void eCharMove() {
 		for(int i = 0; i < Enemy.length; i++) {
-			if(go_flag == 0) Enemy[i].setCharX(Enemy[i].getCharX() - i % 3 - 2); //蜂の移動
+			if(go_flag == 0) Enemy[i].setCharX(Enemy[i].getCharX() - i * 2 % 3 - 3); //蜂の移動
 		}
 	}
 	
@@ -146,14 +162,14 @@ public class GameView extends View{
 	}
 	
 	public void eCharDraw(Canvas canvas, float x, float y) {
-		if(x > -70 && x < 800) canvas.drawBitmap(image2, x, y, null);
+		if(x > -esizex && x < SCREEN_X+esizex) canvas.drawBitmap(image2, x, y, null);
 	}
 	
 	public void eCharControl() {
 		Random r = new Random();
-		int n = r.nextInt(600);
+		int n = r.nextInt(1280);
 		for(int i = 0; i < ENEMY; i++) { 
-			if(Enemy[i].getCharX() < -70) Enemy[i] = controller.getEChar(410 + n, 600);
+			if(Enemy[i].getCharX() < -esizex) Enemy[i] = controller.getEChar((1280 + n), 1080);
 		}
 	}
 	
