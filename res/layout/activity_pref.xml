@@ -4,7 +4,7 @@
 
 		<ListPreference
 			android:defaultValue="3"
-			android:dialogTitle="敵キャラの上限数"
+			android:dialogTitle="@string/pref_max_enemy_count_title"
 			android:entries="@array/max_enemy_counts"
 			android:entryValues="@array/max_enemy_counts"
 			android:key="@string/max_enemy_count"
@@ -13,12 +13,24 @@
 
 		<ListPreference
 			android:defaultValue="2"
-			android:dialogTitle="敵キャラの速度"
+			android:dialogTitle="@string/pref_enemy_speed_title"
 			android:entries="@array/enemy_speed_captions"
 			android:entryValues="@array/enemy_speed_value"
 			android:key="@string/enemy_speed"
 			android:summary=""
 			android:title="@string/pref_enemy_speed_text" />
+	</PreferenceCategory>
+
+	<PreferenceCategory android:title="@string/pref_enemy_title" >
+
+		<ListPreference
+			android:defaultValue="15"
+			android:dialogTitle="ジャンプの高さ"
+			android:entries="@array/jump_height_caption"
+			android:entryValues="@array/jump_height_values"
+			android:key="@string/jump_height"
+			android:summary=""
+			android:title="@string/pref_jump_height_title" />
 	</PreferenceCategory>
 
 </PreferenceScreen>

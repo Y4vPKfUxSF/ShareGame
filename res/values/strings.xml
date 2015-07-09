@@ -16,5 +16,8 @@
 	<string name="result_text_miss">Miss</string>
 	<string name="result_button_retry">Retry</string>
 	<string name="result_button_exit">Back To Menu</string>
+	<string name="pref_max_enemy_count_title">Max Enemy Count</string>
+	<string name="pref_enemy_speed_title">Enemy Speed</string>
+	<string name="pref_jump_height_title">Jump Height</string>
 
 </resources>

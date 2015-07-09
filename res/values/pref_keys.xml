@@ -3,5 +3,6 @@
 
 	<string name="max_enemy_count">max_enemy_count</string>
 	<string name="enemy_speed">enemy_speed</string>
+	<string name="jump_height">jump_height</string>
 
 </resources>
