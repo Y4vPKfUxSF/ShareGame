@@ -23,8 +23,8 @@ public class GameView extends View {
     /**
      * デフォルト画面サイズを定義
      */
-    private static final float SCREEN_X = 1080;
-    private static final float SCREEN_Y = 1920;
+    private static final int SCREEN_X = 1080;
+    private static final int SCREEN_Y = 1920;
 
     /**
      * 地面のY座標点を指定
@@ -44,8 +44,8 @@ public class GameView extends View {
     /**
      * 蜂初期座標
      */
-    private int echarX;
-    private int echarY;
+    private float echarX;
+    private float echarY;
 
     /**
      * 端末の画面サイズ
@@ -181,8 +181,8 @@ public class GameView extends View {
 
     public void charJump() {
         pChar.setPosition(1); // ジャンプ中状態にする
-        sy = -15.f; // ジャンプ力
-        charX += sy; // 慣性力
+        sy = -30.f; // ジャンプ力
+        charY += sy; // 慣性力
         sy += 0.2f; // 重力
     }
 
@@ -199,16 +199,16 @@ public class GameView extends View {
         }
 
         // 地面との判定
-        if ((int) charX >= GROUND) {
-            charX = GROUND; // 地面
+        if ((int) charY >= GROUND) {
+            charY = GROUND; // 地面
             pChar.setPosition(0); // 地上にいる状態にする
         }
 
         // 左右画面端の判定
         if (pChar.getCharX() <= 0) {
             pChar.setCharX(0);
-        } else if (pChar.getCharX() >= 404) {
-            pChar.setCharX(404);
+        } else if (pChar.getCharX() >= SCREEN_X) {
+            pChar.setCharX(SCREEN_X);
         }
 
         // ゴールした時の処理
