@@ -23,13 +23,13 @@ public class GameView extends View {
     /**
      * デフォルト画面サイズを定義
      */
-    private static final int SCREEN_X = 1080;
-    private static final int SCREEN_Y = 1920;
+    private static final int SCREEN_X = 768;
+    private static final int SCREEN_Y = 1280;
 
     /**
      * 地面のY座標点を指定
      */
-    private static final int GROUND = (int) (SCREEN_Y-(SCREEN_Y/4));
+    private static final int GROUND = (int) (SCREEN_Y-(SCREEN_Y/3));
 
     private Enemy[] enemy;
     private int enemySpeed;
@@ -89,7 +89,7 @@ public class GameView extends View {
 
         // 画像読み込み
         Resources r = context.getResources();
-        image2 = BitmapFactory.decodeResource(r, R.drawable.crow_a03);
+        image2 = BitmapFactory.decodeResource(r, R.drawable.crow);
         image3 = BitmapFactory.decodeResource(r, R.drawable.gameover);
 
         // キャラ位置の初期化
@@ -128,9 +128,9 @@ public class GameView extends View {
         cY = deviceHeight / SCREEN_Y;
         Log.d("端末幅=" + size.x, "端末縦=" + size.y);
 
-        cSizeX = BitmapFactory.decodeResource(r, R.drawable.crabe_a03)
+        cSizeX = BitmapFactory.decodeResource(r, R.drawable.crabe)
                 .getWidth();
-        cSizeY = BitmapFactory.decodeResource(r, R.drawable.crabe_a03)
+        cSizeY = BitmapFactory.decodeResource(r, R.drawable.crabe)
                 .getHeight();
         eSizeX = image2.getWidth();
         eSizeY = image2.getHeight();
@@ -169,7 +169,7 @@ public class GameView extends View {
                 charJump();
             break;
         case MotionEvent.ACTION_MOVE:
-            pChar.setCharX(event.getX() - (cSizeX / 4));
+            pChar.setCharX(event.getX() - (cSizeX * cX / 2));
             break;
         case MotionEvent.ACTION_UP:
             break;
@@ -181,7 +181,7 @@ public class GameView extends View {
 
     public void charJump() {
         pChar.setPosition(1); // ジャンプ中状態にする
-        sy = -30.f; // ジャンプ力
+        sy = -25f; // ジャンプ力
         charY += sy; // 慣性力
         sy += 0.2f; // 重力
     }
@@ -207,8 +207,8 @@ public class GameView extends View {
         // 左右画面端の判定
         if (pChar.getCharX() <= 0) {
             pChar.setCharX(0);
-        } else if (pChar.getCharX() >= SCREEN_X) {
-            pChar.setCharX(SCREEN_X);
+        } else if (pChar.getCharX() >= SCREEN_X * cX - cSizeX) {
+            pChar.setCharX(SCREEN_X * cX - cSizeX);
         }
 
         // ゴールした時の処理
@@ -216,7 +216,7 @@ public class GameView extends View {
 
     public void pCharMove() {
         // キャラの移動
-        pChar.setCharX(pChar.getCharX() + (charX - pChar.getCharX()) / 2.4f);
+        //pChar.setCharX(pChar.getCharX() + (charX - pChar.getCharX()) / 2.4f);
         pChar.setCharY(pChar.getCharY() + (charY - pChar.getCharY()) / 2.4f);
 
         // 空中にいる際の処理

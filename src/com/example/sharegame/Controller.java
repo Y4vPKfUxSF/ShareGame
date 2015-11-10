@@ -18,9 +18,9 @@ public class Controller {
      */
     public Controller(Context c) {
         pCharImage = BitmapFactory.decodeResource(c.getResources(),
-                R.drawable.crabe_a03);
+                R.drawable.crabe);
         eCharImage = BitmapFactory.decodeResource(c.getResources(),
-                R.drawable.crow_a03);
+                R.drawable.crow);
     }
 
     /**
@@ -47,7 +47,7 @@ public class Controller {
      * @return
      */
     private int getECharYPosition(int height) {
-        return height / (int) ((Math.random() * 5) + 1);
+        return (int) (Math.random () * 996);
     }
 
 }
