@@ -204,13 +204,6 @@ public class GameView extends View {
             pChar.setPosition(0); // 地上にいる状態にする
         }
 
-        // 左右画面端の判定
-        if (pChar.getCharX() <= 0) {
-            pChar.setCharX(0);
-        } else if (pChar.getCharX() >= SCREEN_X * cX - cSizeX) {
-            pChar.setCharX(SCREEN_X * cX - cSizeX);
-        }
-
         // ゴールした時の処理
     }
 
@@ -234,7 +227,13 @@ public class GameView extends View {
     }
 
     public void pCharDraw(Canvas canvas, float x, float y) {
-        canvas.drawBitmap(pChar.getpCharImage(), x, y, null);
+        if(x < 0) {
+        	canvas.drawBitmap(pChar.getpCharImage(), 0, y, null);
+        } else if(x > SCREEN_X * cX - cSizeX) {
+        	canvas.drawBitmap(pChar.getpCharImage(), SCREEN_X * cX - cSizeX, y, null);
+        } else {
+        	canvas.drawBitmap(pChar.getpCharImage(), x, y, null);
+        }
     }
 
     public void eCharDraw(Canvas canvas, float x, float y) {

@@ -38,13 +38,14 @@ public final class R {
     public static final class id {
         public static final int LinearLayout1=0x7f080000;
         public static final int exitbutton=0x7f080008;
-        public static final int helpButton=0x7f080004;
+        public static final int helpButton=0x7f080005;
         public static final int helptext=0x7f080001;
-        public static final int prefButton=0x7f080005;
-        public static final int resulttext=0x7f080006;
+        public static final int prefButton=0x7f080006;
+        public static final int resulttext=0x7f080009;
         public static final int retrybutton=0x7f080007;
         public static final int returnbutton=0x7f080002;
-        public static final int startButton=0x7f080003;
+        public static final int startButton=0x7f080004;
+        public static final int textView1=0x7f080003;
     }
     public static final class layout {
         public static final int activity_game=0x7f030000;
@@ -63,16 +64,17 @@ public final class R {
         public static final int mainTitle=0x7f060006;
         public static final int max_enemy_count=0x7f060000;
         public static final int prefButton=0x7f06000a;
-        public static final int pref_enemy_count_text=0x7f06000c;
-        public static final int pref_enemy_speed_text=0x7f06000d;
-        public static final int pref_enemy_speed_title=0x7f060013;
-        public static final int pref_enemy_title=0x7f06000b;
-        public static final int pref_jump_height_title=0x7f060014;
-        public static final int pref_max_enemy_count_title=0x7f060012;
-        public static final int result_button_exit=0x7f060011;
-        public static final int result_button_retry=0x7f060010;
-        public static final int result_text_goal=0x7f06000e;
-        public static final int result_text_miss=0x7f06000f;
+        public static final int pref_enemy_count_text=0x7f06000d;
+        public static final int pref_enemy_speed_text=0x7f06000e;
+        public static final int pref_enemy_speed_title=0x7f060014;
+        public static final int pref_enemy_title=0x7f06000c;
+        public static final int pref_jump_height_title=0x7f060015;
+        public static final int pref_max_enemy_count_title=0x7f060013;
+        public static final int result_button_exit=0x7f060012;
+        public static final int result_button_retry=0x7f060011;
+        public static final int result_text_goal=0x7f06000f;
+        public static final int result_text_miss=0x7f060010;
+        public static final int returnbutton=0x7f06000b;
         public static final int startButton=0x7f060007;
         public static final int stopButton=0x7f060009;
     }

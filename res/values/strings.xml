@@ -5,10 +5,11 @@
 	<string name="hello_world">Hello world!</string>
 	<string name="action_settings">Settings</string>
 	<string name="mainTitle">GameTitle</string>
-	<string name="startButton">startButton</string>
-	<string name="helpButton">helpButton</string>
+	<string name="startButton">GameStart</string>
+	<string name="helpButton">Help</string>
 	<string name="stopButton">stopButton</string>
 	<string name="prefButton">Preference</string>
+	<string name="returnbutton">Back To Menu</string>
 	<string name="pref_enemy_title">Enemy Preference</string>
 	<string name="pref_enemy_count_text">Max Enemy Count</string>
 	<string name="pref_enemy_speed_text">Enemy Speed</string>
