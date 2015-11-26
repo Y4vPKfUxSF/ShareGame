@@ -1,17 +1,35 @@
 package com.example.sharegame;
 
+import android.app.ActionBar;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.view.MenuItem;
 import android.widget.ListAdapter;
 
 public class PrefActivity extends PreferenceActivity{
+private ActionBar ab;
+    
     @Override
     protected void onCreate(Bundle b){
         super.onCreate(b);
         getFragmentManager().beginTransaction().replace(android.R.id.content, PrefFragment.getPrefFragment()).commit();
+        ab = getActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()) {
+        case android.R.id.home:
+            finish();
+            break;
+        default:
+            break;
+        }
+        return super.onOptionsItemSelected(item);
     }
     
     /**
