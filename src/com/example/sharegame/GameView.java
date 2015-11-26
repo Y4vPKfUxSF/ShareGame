@@ -71,7 +71,7 @@ public class GameView extends View {
      * ジャンプの高さ
      */
     private float sy = 0.0f;
-
+    private float jumpHeight;
     public int go_flag = 0; // GameOver判定
     private Controller controller;
     private PlayCharacter pChar;
@@ -105,6 +105,8 @@ public class GameView extends View {
         pref = PreferenceManager.getDefaultSharedPreferences(context);
         String mexEnemyCountKey = context.getString(R.string.max_enemy_count);
         String enemySpeedKey = context.getString(R.string.enemy_speed);
+        String jumpHeightKey = context.getString(R.string.jump_height);
+        jumpHeight = Float.parseFloat(pref.getString(jumpHeightKey, "-25"));
         enemy = new Enemy[Integer.parseInt(pref
                 .getString(mexEnemyCountKey, "3"))];
         enemySpeed = Integer.parseInt(pref.getString(enemySpeedKey, "2"));
@@ -181,7 +183,7 @@ public class GameView extends View {
 
     public void charJump() {
         pChar.setPosition(1); // ジャンプ中状態にする
-        sy = -25f; // ジャンプ力
+        sy = jumpHeight; // ジャンプ力
         charY += sy; // 慣性力
         sy += 0.2f; // 重力
     }
@@ -209,7 +211,6 @@ public class GameView extends View {
 
     public void pCharMove() {
         // キャラの移動
-        //pChar.setCharX(pChar.getCharX() + (charX - pChar.getCharX()) / 2.4f);
         pChar.setCharY(pChar.getCharY() + (charY - pChar.getCharY()) / 2.4f);
 
         // 空中にいる際の処理
