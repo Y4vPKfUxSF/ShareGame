@@ -18,11 +18,12 @@ public class ResultActivity extends Activity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         tv = (TextView)findViewById(R.id.resulttext);
-        tv.setText(R.string.result_text_miss);
         retryButton = (Button)findViewById(R.id.retrybutton);
         retryButton.setOnClickListener(this);
         exitButton = (Button)findViewById(R.id.exitbutton);
         exitButton.setOnClickListener(this);
+        Intent i = getIntent();
+        tv.setText(i.getStringExtra("result_msg"));
     }
     
     @Override

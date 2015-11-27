@@ -1,7 +1,7 @@
 package com.example.sharegame;
 
 import java.util.Random;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,12 +11,14 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 //イメージ描画
 public class GameView extends View {
@@ -33,7 +35,7 @@ public class GameView extends View {
 
     private Enemy[] enemy;
     private int enemySpeed;
-    private Bitmap image2, image3; // イメージ画像
+    private Bitmap image2; // イメージ画像
 
     /**
      * キャラの座標点
@@ -76,6 +78,7 @@ public class GameView extends View {
     private Controller controller;
     private PlayCharacter pChar;
     private SharedPreferences pref;
+    private long sysTime;
 
     /**
      * コンストラクタ
@@ -90,7 +93,6 @@ public class GameView extends View {
         // 画像読み込み
         Resources r = context.getResources();
         image2 = BitmapFactory.decodeResource(r, R.drawable.crow);
-        image3 = BitmapFactory.decodeResource(r, R.drawable.gameover);
 
         // キャラ位置の初期化
         // プレイヤー
@@ -128,7 +130,6 @@ public class GameView extends View {
         // 画面サイズに合わせて表示させるための係数を代入
         cX = deviceWidth / SCREEN_X;
         cY = deviceHeight / SCREEN_Y;
-        Log.d("端末幅=" + size.x, "端末縦=" + size.y);
 
         cSizeX = BitmapFactory.decodeResource(r, R.drawable.crabe)
                 .getWidth();
@@ -136,18 +137,22 @@ public class GameView extends View {
                 .getHeight();
         eSizeX = image2.getWidth();
         eSizeY = image2.getHeight();
+        sysTime = System.currentTimeMillis();
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        // ミリ秒指定で終了時間を決められる
+        if(System.currentTimeMillis()-sysTime > 30000){
+            go_flag = 1;
+            getFinish("回避成功!");
+        }
         pCharDraw(canvas, pChar.getCharX() * cX, pChar.getCharY() * cY); // 熊の描画
         for (int i = 0; i < enemy.length; i++) {
             eCharDraw(canvas, enemy[i].getCharX() * cX, enemy[i].getCharY()
                     * cY); // 蜂の描画
         }
-        if (go_flag == 1) {
-            canvas.drawBitmap(image3, 0, 0, null);
-        }else{
+        if (go_flag != 1) {
             pCharMove();
             eCharMove();
             judge();
@@ -156,8 +161,9 @@ public class GameView extends View {
         }
     }
 
-    private void getFinish() {
+    private void getFinish(String msg) {
         Intent i = new Intent(getContext(), ResultActivity.class);
+        i.putExtra("result_msg",msg);
         i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         getContext().startActivity(i);
     }
@@ -196,7 +202,7 @@ public class GameView extends View {
                     && pChar.getCharY() < (enemy[i].getCharY() + eSizeY)
                     && (pChar.getCharY() + cSizeY) > enemy[i].getCharY()) {
                 go_flag = 1; // GameOverのフラグを立てる
-                getFinish();
+                getFinish("失敗");
             }
         }
 
