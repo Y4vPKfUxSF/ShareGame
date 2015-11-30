@@ -1,6 +1,7 @@
 package com.example.sharegame;
 
 import java.util.Random;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +11,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.graphics.Point;
 import android.os.CountDownTimer;
 import android.preference.PreferenceManager;
@@ -79,6 +81,7 @@ public class GameView extends View {
     private PlayCharacter pChar;
     private SharedPreferences pref;
     private long sysTime;
+    private Paint p;
 
     /**
      * コンストラクタ
@@ -138,10 +141,16 @@ public class GameView extends View {
         eSizeX = image2.getWidth();
         eSizeY = image2.getHeight();
         sysTime = System.currentTimeMillis();
+        p = new Paint();
+        p.setColor(Color.BLACK);
+        p.setTextSize(50);
+        p.setAntiAlias(true);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        canvas.drawText("ゲームクリアまであと:"+String.valueOf(30-(System.currentTimeMillis()-sysTime)/1000+"秒"), 40, 40, p);
         // ミリ秒指定で終了時間を決められる
         if(System.currentTimeMillis()-sysTime > 30000){
             go_flag = 1;
