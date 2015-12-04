@@ -150,16 +150,16 @@ public class GameView extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
+        pCharDraw(canvas, pChar.getCharX() * cX, pChar.getCharY() * cY); // 熊の描画
+        for (int i = 0; i < enemy.length; i++) {
+            eCharDraw(canvas, enemy[i].getCharX() * cX, enemy[i].getCharY()
+                    * cY); // 蜂の描画
+        }
         canvas.drawText("ゲームクリアまであと:"+String.valueOf(30-(System.currentTimeMillis()-sysTime)/1000+"秒"), 40, 40, p);
         // ミリ秒指定で終了時間を決められる
         if(System.currentTimeMillis()-sysTime > 30000){
             go_flag = 1;
             getFinish("回避成功!");
-        }
-        pCharDraw(canvas, pChar.getCharX() * cX, pChar.getCharY() * cY); // 熊の描画
-        for (int i = 0; i < enemy.length; i++) {
-            eCharDraw(canvas, enemy[i].getCharX() * cX, enemy[i].getCharY()
-                    * cY); // 蜂の描画
         }
         if (go_flag != 1) {
             pCharMove();
