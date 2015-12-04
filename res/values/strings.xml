@@ -18,15 +18,15 @@
 	<string name="result_text_miss">Miss</string>
 	<string name="game_to_clear">game to clear:</string>
 	<string name="second">second</string>
-	<string name="help_faq_title1">どうしてもゲームがクリアできません。</string>
+	<string name="help_faq_title1">Absolutely the game can not be cleared.</string>
 	<string name="help_faq_answer1"></string>
-	<string name="help_faq_title2">ゲームが簡単すぎて面白くありません。</string>
+	<string name="help_faq_title2">Game is not interesting too easy.</string>
 	<string name="help_faq_answer2"></string>
-	<string name="help_faq_title3">ジャンプの高さを変えたい。</string>
+	<string name="help_faq_title3">I want to change the height of the jump.</string>
 	<string name="help_faq_answer3"></string>
-	<string name="help_faq_title4">敵キャラ数を変えたい。</string>
+	<string name="help_faq_title4">I want to change the number of enemy characters.</string>
 	<string name="help_faq_answer4"></string>
-	<string name="help_faq_title5">敵キャラの動作速度を変えたい。</string>
+	<string name="help_faq_title5">I want to change the operating speed of the enemy character.</string>
 	<string name="help_faq_answer5"></string>
 	<string name="help_license">clipart by illpopp.com</string>
 

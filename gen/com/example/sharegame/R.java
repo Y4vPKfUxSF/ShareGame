@@ -61,6 +61,17 @@ public final class R {
         public static final int game_to_clear=0x7f060012;
         public static final int hello_world=0x7f060005;
         public static final int helpButton=0x7f060006;
+        public static final int help_faq_answer1=0x7f060015;
+        public static final int help_faq_answer2=0x7f060017;
+        public static final int help_faq_answer3=0x7f060019;
+        public static final int help_faq_answer4=0x7f06001b;
+        public static final int help_faq_answer5=0x7f06001d;
+        public static final int help_faq_title1=0x7f060014;
+        public static final int help_faq_title2=0x7f060016;
+        public static final int help_faq_title3=0x7f060018;
+        public static final int help_faq_title4=0x7f06001a;
+        public static final int help_faq_title5=0x7f06001c;
+        public static final int help_license=0x7f06001e;
         public static final int jump_height=0x7f060002;
         public static final int max_enemy_count=0x7f060000;
         public static final int prefButton=0x7f06000d;
