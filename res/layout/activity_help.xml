@@ -1,36 +1,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    tools:context="com.example.sharegame.HelpActivity" >
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/LinearLayout1"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	tools:context="com.example.sharegame.HelpActivity" >
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="#0000FF" >
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:background="#0000FF" >
 
-        <TextView
-            android:id="@+id/helptext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="39dp"
-            android:text="@string/helptext"
-            android:textColor="#FFFFFF" />
+		<TextView
+			android:id="@+id/helptext"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentTop="true"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="10dp"
+			android:layout_marginTop="39dp"
+			android:text=""
+			android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/returnbutton"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/helptext"
-            android:layout_centerHorizontal="true"
-            android:text="@string/returnbutton"
-            android:layout_width="150dp"
-            android:textColor="#FFFFFF" />
-
-    </RelativeLayout>
+		<Button
+			android:id="@+id/returnbutton"
+			android:layout_width="150dp"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/helptext"
+			android:layout_centerHorizontal="true"
+			android:text="@string/result_button_exit"
+			android:textColor="#FFFFFF" />
+	</RelativeLayout>
 
 </LinearLayout>

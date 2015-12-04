@@ -1,46 +1,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/LinearLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical"
-    tools:context="com.example.sharegame.ResultActivity" >
+	xmlns:tools="http://schemas.android.com/tools"
+	android:id="@+id/LinearLayout1"
+	android:layout_width="fill_parent"
+	android:layout_height="fill_parent"
+	android:orientation="vertical"
+	tools:context="com.example.sharegame.ResultActivity" >
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="0.95"
-        android:background="#0000FF" >
+	<RelativeLayout
+		android:layout_width="fill_parent"
+		android:layout_height="fill_parent"
+		android:layout_weight="0.95"
+		android:background="#0000FF" >
 
-        <Button
-            android:id="@+id/retrybutton"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/exitbutton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:text="@string/result_button_retry"
-            android:textColor="#FFFFFF" />
+		<Button
+			android:id="@+id/retrybutton"
+			android:layout_width="150dp"
+			android:layout_height="wrap_content"
+			android:layout_above="@+id/exitbutton"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="10dp"
+			android:text="@string/result_button_retry"
+			android:textColor="#FFFFFF" />
 
-        <Button
-            android:id="@+id/exitbutton"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="@string/result_button_exit"
-            android:textColor="#FFFFFF" />
+		<Button
+			android:id="@+id/exitbutton"
+			android:layout_width="150dp"
+			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			android:text="@string/result_button_exit"
+			android:textColor="#FFFFFF" />
 
-        <TextView
-            android:id="@+id/resulttext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/retrybutton"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="10dp"
-            android:text="@string/helptext"
-            android:textColor="#FFFFFF" />
-
-    </RelativeLayout>
+		<TextView
+			android:id="@+id/resulttext"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_above="@+id/retrybutton"
+			android:layout_centerHorizontal="true"
+			android:layout_marginBottom="10dp"
+			android:text=""
+			android:textColor="#FFFFFF" />
+	</RelativeLayout>
 
 </LinearLayout>
