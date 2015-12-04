@@ -21,7 +21,7 @@
 			android:title="@string/pref_enemy_speed_text" />
 	</PreferenceCategory>
 
-	<PreferenceCategory android:title="@string/pref_enemy_title" >
+	<PreferenceCategory android:title="@string/pref_player_title" >
 
 		<ListPreference
 			android:defaultValue="15"

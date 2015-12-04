@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<string name="app_name">Jumping Crab</string>
-	<string name="hello_world">Hello world!</string>
-	<string name="action_settings">Settings</string>
-	<string name="mainTitle">GameTitle</string>
-	<string name="startButton">startButton</string>
-	<string name="helpButton">helpButton</string>
-	<string name="stopButton">stopButton</string>
+	<string name="app_name">ジャンピング クラブ</string>
+	<string name="action_settings">設定</string>
+	<string name="startButton">ゲームスタート</string>
+	<string name="helpButton">ヘルプ</string>
 	<string name="prefButton">設定</string>
+	<string name="returnbutton">メニューに戻る</string>
 	<string name="pref_enemy_title">敵キャラ設定</string>
+	<string name="pref_player_title">プレイヤー設定</string>
 	<string name="pref_enemy_count_text">敵の上限数</string>
-	<string name="pref_enemy_speed_text">敵キャラ速度</string>
-	<string name="result_text_goal">ゴール</string>
+	<string name="pref_enemy_speed_text">敵キャラの速度</string>
+	<string name="result_text_goal">クリアー</string>
 	<string name="result_text_miss">失敗</string>
 	<string name="result_button_retry">リトライ</string>
 	<string name="result_button_exit">メニューに戻る</string>
+	<string name="pref_max_enemy_count_title">敵の上限数</string>
+	<string name="pref_enemy_speed_title">敵キャラの速度</string>
+	<string name="pref_jump_height_title">ジャンプの高さ</string>
+	<string name="helptext">helptext</string>
+	<string name="game_to_clear">ゲームクリアまであと:</string>
+	<string name="second">秒</string>
 
 </resources>

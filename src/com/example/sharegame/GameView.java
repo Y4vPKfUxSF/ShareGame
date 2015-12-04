@@ -82,6 +82,7 @@ public class GameView extends View {
     private SharedPreferences pref;
     private long sysTime;
     private Paint p;
+    public String miss,clear,game_to_clear,second;
 
     /**
      * コンストラクタ
@@ -106,6 +107,12 @@ public class GameView extends View {
         echarX = SCREEN_X;
         echarY = SCREEN_Y;
         pChar = controller.getPChar();
+        
+        // 文字列
+        miss = context.getString(R.string.result_text_miss);
+        clear = context.getString(R.string.result_text_goal);
+        game_to_clear = context.getString(R.string.game_to_clear);
+        second = context.getString(R.string.second);
 
         pref = PreferenceManager.getDefaultSharedPreferences(context);
         String mexEnemyCountKey = context.getString(R.string.max_enemy_count);
@@ -155,11 +162,11 @@ public class GameView extends View {
             eCharDraw(canvas, enemy[i].getCharX() * cX, enemy[i].getCharY()
                     * cY); // 蜂の描画
         }
-        canvas.drawText("ゲームクリアまであと:"+String.valueOf(30-(System.currentTimeMillis()-sysTime)/1000+"秒"), 40, 40, p);
+        canvas.drawText(game_to_clear+String.valueOf(30-(System.currentTimeMillis()-sysTime)/1000+second), 40, 40, p);
         // ミリ秒指定で終了時間を決められる
         if(System.currentTimeMillis()-sysTime > 30000){
             go_flag = 1;
-            getFinish("回避成功!");
+            getFinish(clear);
         }
         if (go_flag != 1) {
             pCharMove();
@@ -211,7 +218,7 @@ public class GameView extends View {
                     && pChar.getCharY() < (enemy[i].getCharY() + eSizeY)
                     && (pChar.getCharY() + cSizeY) > enemy[i].getCharY()) {
                 go_flag = 1; // GameOverのフラグを立てる
-                getFinish("失敗");
+                getFinish(miss);
             }
         }
 
