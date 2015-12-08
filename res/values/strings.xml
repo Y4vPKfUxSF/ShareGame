@@ -18,16 +18,16 @@
 	<string name="result_text_miss">Miss</string>
 	<string name="game_to_clear">game to clear:</string>
 	<string name="second">second</string>
-	<string name="help_faq_title1">Absolutely the game can not be cleared.</string>
-	<string name="help_faq_answer1"></string>
-	<string name="help_faq_title2">Game is not interesting too easy.</string>
-	<string name="help_faq_answer2"></string>
-	<string name="help_faq_title3">I want to change the height of the jump.</string>
-	<string name="help_faq_answer3"></string>
-	<string name="help_faq_title4">I want to change the number of enemy characters.</string>
-	<string name="help_faq_answer4"></string>
-	<string name="help_faq_title5">I want to change the operating speed of the enemy character.</string>
-	<string name="help_faq_answer5"></string>
-	<string name="help_license">clipart by illpopp.com</string>
+	<string name="help_faq_title1">Q. Absolutely the game can not be cleared.\n</string>
+	<string name="help_faq_answer1">A. Please change the number of the enemy.\n</string>
+	<string name="help_faq_title2">Q. Game is not interesting too easy.\n</string>
+	<string name="help_faq_answer2">A. Please change the settings of your enemy and character.\n</string>
+	<string name="help_faq_title3">Q. I want to change the height of the jump.\n</string>
+	<string name="help_faq_answer3">A. You can be changed from the settings screen.\n</string>
+	<string name="help_faq_title4">Q. I want to change the number of enemy characters.\n</string>
+	<string name="help_faq_answer4">A. You can be changed from the settings screen.\n</string>
+	<string name="help_faq_title5">Q. I want to change the operating speed of the enemy character.\n</string>
+	<string name="help_faq_answer5">A. You can be changed from the settings screen.\n</string>
+	<string name="help_license">clipart by illpopp.com\n</string>
 
 </resources>

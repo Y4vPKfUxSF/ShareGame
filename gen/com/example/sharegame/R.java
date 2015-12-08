@@ -37,15 +37,25 @@ public final class R {
     }
     public static final class id {
         public static final int LinearLayout1=0x7f080000;
-        public static final int exitbutton=0x7f080008;
-        public static final int helpButton=0x7f080005;
-        public static final int helptext=0x7f080001;
-        public static final int prefButton=0x7f080006;
-        public static final int resulttext=0x7f080009;
-        public static final int retrybutton=0x7f080007;
-        public static final int returnbutton=0x7f080002;
-        public static final int startButton=0x7f080004;
-        public static final int textView1=0x7f080003;
+        public static final int exitbutton=0x7f080012;
+        public static final int helpButton=0x7f08000f;
+        public static final int help_faq_answer1=0x7f080002;
+        public static final int help_faq_answer2=0x7f080004;
+        public static final int help_faq_answer3=0x7f080006;
+        public static final int help_faq_answer4=0x7f080008;
+        public static final int help_faq_answer5=0x7f08000a;
+        public static final int help_faq_title1=0x7f080001;
+        public static final int help_faq_title2=0x7f080003;
+        public static final int help_faq_title3=0x7f080005;
+        public static final int help_faq_title4=0x7f080007;
+        public static final int help_faq_title5=0x7f080009;
+        public static final int help_license=0x7f08000b;
+        public static final int prefButton=0x7f080010;
+        public static final int resulttext=0x7f080013;
+        public static final int retrybutton=0x7f080011;
+        public static final int returnbutton=0x7f08000c;
+        public static final int startButton=0x7f08000e;
+        public static final int textView1=0x7f08000d;
     }
     public static final class layout {
         public static final int activity_game=0x7f030000;

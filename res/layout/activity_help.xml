@@ -11,22 +11,110 @@
 		android:layout_height="fill_parent"
 		android:background="#0000FF" >
 
-		<TextView
-			android:id="@+id/helptext"
+		<TextView	
+			android:id="@+id/help_faq_title1"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
 			android:layout_alignParentTop="true"
-			android:layout_centerHorizontal="true"
-			android:layout_marginBottom="10dp"
-			android:layout_marginTop="39dp"
-			android:text=""
+			android:text="@string/help_faq_title1"
 			android:textColor="#FFFFFF" />
-
+			
+		<TextView	
+			android:id="@+id/help_faq_answer1"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_title1"
+			android:text="@string/help_faq_answer1"
+			android:textColor="#FFFFFF" />
+			
+		<TextView	
+			android:id="@+id/help_faq_title2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_answer1"
+			android:text="@string/help_faq_title2"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_faq_answer2"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_title2"
+			android:text="@string/help_faq_answer2"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_faq_title3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_answer2"
+			android:text="@string/help_faq_title3"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_faq_answer3"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_title3"
+			android:text="@string/help_faq_answer3"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_faq_title4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_answer3"
+			android:text="@string/help_faq_title4"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_faq_answer4"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_title4"
+			android:text="@string/help_faq_answer4"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_faq_title5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_answer4"
+			android:text="@string/help_faq_title5"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_faq_answer5"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_title5"
+			android:text="@string/help_faq_answer5"
+			android:textColor="#FFFFFF" />
+		
+		<TextView	
+			android:id="@+id/help_license"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:layout_below="@+id/help_faq_answer5"
+			android:text="@string/help_license"
+			android:textColor="#FFFFFF" />
+		
 		<Button
 			android:id="@+id/returnbutton"
 			android:layout_width="fill_parent"
 			android:layout_height="wrap_content"
-			android:layout_below="@+id/helptext"
+			android:layout_below="@+id/help_license"
 			android:layout_centerHorizontal="true"
 			android:text="@string/result_button_exit"
 			android:textColor="#FFFFFF" />
