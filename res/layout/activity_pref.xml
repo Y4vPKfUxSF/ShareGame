@@ -24,7 +24,7 @@
 	<PreferenceCategory android:title="@string/pref_player_title" >
 
 		<ListPreference
-			android:defaultValue="15"
+			android:defaultValue="-25"
 			android:dialogTitle="@string/pref_jump_height_title"
 			android:entries="@array/jump_height_caption"
 			android:entryValues="@array/jump_height_values"
